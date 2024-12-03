@@ -62,8 +62,6 @@ word_df_with_region_info <- word_df %>%
          assigned_line = line,
          char = string)
 
-# Assign the new column names to the data frame
-colnames(word_df_with_region_info) <- new_colnames 
 
 # add char_x_center and char_y_center columns
 word_df_with_region_info <- word_df_with_region_info %>%
