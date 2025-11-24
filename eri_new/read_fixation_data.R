@@ -19,8 +19,8 @@ fixation_data <- read_delim(filename, delim = "\t") %>%
   # round all to 0 decimal places
   mutate(across(c(x, y, start, stop), ~ round(., 0))) %>%
                 
-  select(x, y, start, stop, subject, trial_id) %>%
-  filter(trial_id == "page18")
+  select(x, y, start, stop, subject, trial_id) #%>%
+  #filter(trial_id == "page30")
 
 write_csv(fixation_data, "eri_new/fixation_data.csv")
 # Check the first few rows of the fixation data

@@ -1,0 +1,32 @@
+{
+  "name": "Hugging Face Space - GazeGenie",
+  "image": "registry.hf.space/bugroup-gazegenie:latest",
+  "runArgs": [
+    "--platform=linux/amd64"
+  ],
+  "forwardPorts": [8501],
+  "overrideCommand": true,
+  "shutdownAction": "stopContainer",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  // Installs common tools (git, curl, zsh) to make the terminal experience better
+  // since Space images are often very minimal.
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installGit": true,
+      "upgradePackages": false
+    }
+  },
+  // Once the codespace loads, this message will remind you how to start the app
+  "postStartCommand": "echo 'Environment ready! To start the app, run: streamlit run app.py'"
+}
